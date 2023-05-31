@@ -4,7 +4,7 @@ import Constants from 'expo-constants';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 
 export default function App() {
-  const [isPlaying, setIsPlaying] = React.useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
 
   return (
     <View style={styles.container}>
@@ -13,8 +13,8 @@ export default function App() {
         duration={10}
         colors="#004777"
         onComplete={() => {
-          console.log('ON_COMPLETE BEFORE RETURN')
-          return [true, 0]
+          setIsPlaying(false);
+          return { shouldRepeat: true, delay: 0}
         }}
       >
         {({ remainingTime, animatedColor }) => (
@@ -25,7 +25,7 @@ export default function App() {
         )}
       </CountdownCircleTimer>
       {isPlaying ?
-        <Text>Wave your hand over the light sensor!</Text>
+        <Button title="Pause" onPress={() => setIsPlaying(prev => !prev)} />
         :
         <Button title="Start" onPress={() => setIsPlaying(prev => !prev)} />
       }
