@@ -2,6 +2,10 @@
 
 This repository contains the source code and resources for an Android application built using React Native.
 
+# Deployment/Expo Snack
+
+https://snack.expo.dev/@modopo/countdown
+
 ## Getting Started
 
 To get started with this project, follow these steps:
